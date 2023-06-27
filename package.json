@@ -8,11 +8,15 @@
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint --fix",
     "prettierrc:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "lint-prettier": "yarn lint:check && yarn prettierrc:check",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "src/**/*.ts": "yarn lint-prettier"
+  },
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
     "husky": "^8.0.3",
